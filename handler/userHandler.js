@@ -53,7 +53,6 @@ router.post('/login', async (req, res) => {
       res.status(401).send('Unauthorized user!');
     }
   } catch (error) {
-    console.log(error);
     res.status(500).send('There was a server side error!');
   }
 });
