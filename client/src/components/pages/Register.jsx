@@ -26,19 +26,22 @@ function Register() {
     const { name, email, phone, password } = user;
     if (name && email && phone && password !== '') {
       try {
-        const result = await fetch('http://127.0.0.1:3001/user/register', {
-          // mode: 'no-cors',
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name,
-            email,
-            phone,
-            password,
-          }),
-        });
+        const result = await fetch(
+          'https://mernprojectf.herokuapp.com/user/register',
+          {
+            // mode: 'no-cors',
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name,
+              email,
+              phone,
+              password,
+            }),
+          }
+        );
         if (result.status === 500 || !result) {
           window.alert('User already registerd');
         } else {
@@ -75,7 +78,7 @@ function Register() {
       <div className="row">
         <div className="col-sm-12 col-md-12 col-lg-6">
           <form
-            action="http://127.0.0.1:3001/user/register"
+            action="https://mernprojectf.herokuapp.com/user/register"
             method="POST"
             className="mt-5 p-4"
           >

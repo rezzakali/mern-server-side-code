@@ -25,21 +25,24 @@ function Login({ setAuth }) {
     const { email, password } = user;
     if (email && password !== '') {
       try {
-        const result = await fetch('http://127.0.0.1:3001/user/login', {
-          // mode: 'no-cors',
-          method: 'POST',
-          // redirect: 'follow',
-          credentials: 'include',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          // credentials: 'same-origin',
-          body: JSON.stringify({
-            email,
-            password,
-          }),
-        });
+        const result = await fetch(
+          'https://mernprojectf.herokuapp.com/user/login',
+          {
+            // mode: 'no-cors',
+            method: 'POST',
+            // redirect: 'follow',
+            credentials: 'include',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            // credentials: 'same-origin',
+            body: JSON.stringify({
+              email,
+              password,
+            }),
+          }
+        );
 
         if (result.status === 400 || result.status === 401 || !result) {
           window.alert('Invalid user details');
@@ -73,7 +76,7 @@ function Login({ setAuth }) {
       <div className="row mt-5">
         <div className="col-sm-12 col-md-12 col-lg-6">
           <form
-            action="http://127.0.0.1:3001/user/login"
+            action="https://mernprojectf.herokuapp.com/user/login"
             method="post"
             className="mt-5 p-4 "
           >

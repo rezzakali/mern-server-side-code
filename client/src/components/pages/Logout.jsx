@@ -5,14 +5,17 @@ function Logout() {
   const navigate = useNavigate();
   const logout = async () => {
     try {
-      const result = await fetch('http://127.0.0.1:3001/user/logout', {
-        // mode: 'no-cors',
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-      });
+      const result = await fetch(
+        'https://mernprojectf.herokuapp.com/user/logout',
+        {
+          // mode: 'no-cors',
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include',
+        }
+      );
       if (result.status === 500 || !result) {
         window.alert('Logout later!');
       } else {

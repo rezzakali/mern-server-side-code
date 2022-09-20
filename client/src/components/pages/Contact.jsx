@@ -22,21 +22,24 @@ function Contact() {
     const { name, email, message } = userMessage;
     if (email && name && message !== '') {
       try {
-        const result = await fetch('http://127.0.0.1:3001/user/message', {
-          method: 'POST',
-          // redirect: 'follow',
-          credentials: 'include',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          // credentials: 'same-origin',
-          body: JSON.stringify({
-            name,
-            email,
-            message,
-          }),
-        });
+        const result = await fetch(
+          'https://mernprojectf.herokuapp.com/user/message',
+          {
+            method: 'POST',
+            // redirect: 'follow',
+            credentials: 'include',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+            // credentials: 'same-origin',
+            body: JSON.stringify({
+              name,
+              email,
+              message,
+            }),
+          }
+        );
 
         if (result) {
           setTimeout(() => {
@@ -72,7 +75,7 @@ function Contact() {
       <div className="row mt-5">
         <div className="col-sm-12 col-md-12 col-lg-6">
           <form
-            action="http://127.0.0.1:3001/user/message"
+            action="https://mernprojectf.herokuapp.com/user/message"
             method="post"
             className="mt-5 p-4 "
           >
