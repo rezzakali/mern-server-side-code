@@ -3,16 +3,17 @@ require('dotenv').config();
 require('./db/dbConnection');
 const userHandler = require('./handler/userHandler');
 const cors = require('cors');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 const cookieParser = require('cookie-parser');
 const hostname = process.env.HOST_NAME;
+const path = require('path');
 
 const app = express();
 app.use(cookieParser());
 app.use(express.json());
 
 const corsOptions = {
-  origin: 'https://mstackfull.herokuapp.com', //included origin as true
+  origin: true, //included origin as true
   credentials: true, //included credentials as true
 };
 
@@ -29,9 +30,11 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/user', userHandler);
 
-app.get('/', (req, res) => {
-  res.json({ result: 'Success' });
-});
+app.use(express.static(path.join(__dirname, './client/build')));
+
+if (process.env.NODE_ENV == 'production') {
+  app.use(express.static('./client/build'));
+}
 
 // error handler
 app.use((err, req, res, next) => {

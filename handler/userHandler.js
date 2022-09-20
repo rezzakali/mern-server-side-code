@@ -53,6 +53,7 @@ router.post('/login', async (req, res) => {
       res.status(401).send('Unauthorized user!');
     }
   } catch (error) {
+    console.log(error);
     res.status(500).send('There was a server side error!');
   }
 });
@@ -60,7 +61,11 @@ router.post('/login', async (req, res) => {
 // Logout router
 router.get('/logout', async (req, res) => {
   try {
-    res.clearCookie('jwt', { httpOnly: false, sameSite: 'None', secure: true });
+    res.clearCookie('jwt', {
+      httpOnly: false,
+      sameSite: 'None',
+      secure: true,
+    });
     res.status(200).send('Cleared cookie');
   } catch (error) {
     res.status(500).send('There was a server side error!');

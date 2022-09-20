@@ -1,0 +1,35 @@
+#email,
+#password,
+#name,
+#phone {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: #1e293b;
+  color: rgba(255, 255, 255, 0.322);
+}
+#email:focus {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+#button {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+#button:active {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+img {
+  width: 100%;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding: 10px;
+}
