@@ -1,7 +1,7 @@
 {
   "main": "index.js",
   "description": "",
-  "name": "mernproject",
+  "name": "mernprojectf",
   "version": "1.0.0",
   "scripts": {
     "start": "node index.js",
